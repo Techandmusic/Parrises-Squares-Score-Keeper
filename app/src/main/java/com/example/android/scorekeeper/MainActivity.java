@@ -16,6 +16,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    /* These two methods save and restore the variable states when the screen is re-drawn
+     * such as when the view rotates */
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("teamAScore", teamAScore);
+        outState.putInt("teamBScore", teamBScore);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle inState) {
+        super.onRestoreInstanceState(inState);
+        teamAScore = inState.getInt("teamAScore");
+        teamBScore = inState.getInt("teamBScore");
+    }
+
     /*team A button listeners */
 
     public void pyramidGoalA(View view) {
