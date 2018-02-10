@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Parrises Squares Score Keeper</string>
+    <string name="buttonOne">PYRAMID THROW</string>
+    <string name="buttonTwo">FIELD THROW</string>
+    <string name="buttonThree">RAMP GOAL</string>
+    <string name="teamA">FEDERATION</string>
+    <string name="teamB">ROMULANS</string>
+    <string name="reset">RESET</string>
+    <string name="title">PARRISES SQUARES</string>
+</resources>
