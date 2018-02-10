@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         displayforTeamB(teamBScore);
     }
 
+    /* This method resets scores by assigning score varibales a value of zero*/
+
     public void reset(View view) {
         teamAScore = 0;
         teamBScore = 0;
