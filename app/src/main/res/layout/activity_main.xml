@@ -80,6 +80,7 @@
                     android:text="@string/buttonOne"
                     android:textColor="@color/textColor" />
 
+
                 <Button
                     android:id="@+id/btnTwo"
                     android:layout_width="match_parent"
@@ -91,6 +92,7 @@
                     android:onClick="fieldThrowA"
                     android:text="@string/buttonTwo"
                     android:textColor="@color/textColor" />
+
 
                 <Button
                     android:id="@+id/btnThree"
@@ -197,7 +199,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="64dp"
             android:background="@drawable/rounded_corner_button"
             android:onClick="reset"
             android:text="@string/reset"
