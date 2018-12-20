@@ -1,5 +1,7 @@
 package com.example.android.scorekeeper;
 
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProviders;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,11 +11,15 @@ public class MainActivity extends AppCompatActivity {
 
     int teamAScore = 0;
     int teamBScore = 0;
+    public ViewModel mViewModel = new ScoreViewModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mViewModel = ViewModelProviders.of(this).get(ScoreViewModel.class);
+        displayforTeamA(((ScoreViewModel) mViewModel).scoreTeamA);
+        displayforTeamB(((ScoreViewModel) mViewModel).scoreTeamB);
     }
 
     /* These two methods save and restore the variable states when the screen is re-drawn
@@ -75,10 +81,6 @@ public class MainActivity extends AppCompatActivity {
         displayforTeamA(teamAScore);
         displayforTeamB(teamBScore);
     }
-
-
-
-
 
     /*Score display methods for teams A and B respectively*/
 
