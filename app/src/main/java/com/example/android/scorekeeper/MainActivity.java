@@ -1,85 +1,76 @@
 package com.example.android.scorekeeper;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProviders;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
-    int teamAScore = 0;
-    int teamBScore = 0;
-    public ViewModel mViewModel = new ScoreViewModel();
+public class MainActivity extends AppCompatActivity
+{
+
+   // int teamAScore = 0;
+   // int teamBScore = 0;
+    public ScoreViewModel mViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mViewModel = ViewModelProviders.of(this).get(ScoreViewModel.class);
-        displayforTeamA(((ScoreViewModel) mViewModel).scoreTeamA);
-        displayforTeamB(((ScoreViewModel) mViewModel).scoreTeamB);
+        displayforTeamA(mViewModel.scoreTeamA);
+        displayforTeamB(mViewModel.scoreTeamB);
+
     }
 
     /* These two methods save and restore the variable states when the screen is re-drawn
      * such as when the view rotates */
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt("teamAScore", teamAScore);
-        outState.putInt("teamBScore", teamBScore);
-    }
 
-    @Override
-    protected void onRestoreInstanceState(Bundle inState) {
-        super.onRestoreInstanceState(inState);
-        teamAScore = inState.getInt("teamAScore");
-        teamBScore = inState.getInt("teamBScore");
-    }
 
     /*team A button listeners */
 
     public void pyramidGoalA(View view) {
-        teamAScore = teamAScore + 7;
-        displayforTeamA(teamAScore);
+        mViewModel.scoreTeamA = mViewModel.scoreTeamA + 7;
+        displayforTeamA(mViewModel.scoreTeamA);
     }
 
     public void fieldThrowA(View view) {
-        teamAScore = teamAScore + 3;
-        displayforTeamA(teamAScore);
+        mViewModel.scoreTeamA = mViewModel.scoreTeamA + 3;
+        displayforTeamA(mViewModel.scoreTeamA);
     }
 
     public void rampGoalA(View view) {
-        teamAScore = teamAScore + 10;
-        displayforTeamA(teamAScore);
+        mViewModel.scoreTeamA = mViewModel.scoreTeamA + 10;
+        displayforTeamA(mViewModel.scoreTeamA);
     }
 
     /*team B button listeners*/
 
     public void pyramidGoalB(View view) {
-        teamBScore = teamBScore + 7;
-        displayforTeamB(teamBScore);
+        mViewModel.scoreTeamB = mViewModel.scoreTeamB + 7;
+        displayforTeamB(mViewModel.scoreTeamB);
     }
 
     public void fieldThrowB(View view) {
-        teamBScore = teamBScore + 3;
-        displayforTeamB(teamBScore);
+        mViewModel.scoreTeamB = mViewModel.scoreTeamB + 3;
+        displayforTeamB(mViewModel.scoreTeamB);
     }
 
     public void rampGoalB(View view) {
-        teamBScore = teamBScore + 10;
-        displayforTeamB(teamBScore);
+        mViewModel.scoreTeamB = mViewModel.scoreTeamB + 10;
+        displayforTeamB(mViewModel.scoreTeamB);
     }
 
     /* This method resets scores by assigning score varibales a value of zero*/
 
     public void reset(View view) {
-        teamAScore = 0;
-        teamBScore = 0;
-        displayforTeamA(teamAScore);
-        displayforTeamB(teamBScore);
+        mViewModel.scoreTeamA = 0;
+        mViewModel.scoreTeamB = 0;
+        displayforTeamA(mViewModel.scoreTeamA);
+        displayforTeamB(mViewModel.scoreTeamB);
     }
 
     /*Score display methods for teams A and B respectively*/

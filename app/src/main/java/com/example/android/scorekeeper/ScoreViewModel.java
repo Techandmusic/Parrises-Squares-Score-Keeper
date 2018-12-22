@@ -1,6 +1,6 @@
 package com.example.android.scorekeeper;
 
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel;
 
 public class ScoreViewModel extends ViewModel
 {
